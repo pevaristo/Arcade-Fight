@@ -7,11 +7,12 @@ ROOT_DIR="$SCRIPT_DIR/.."
 cd "$ROOT_DIR" || exit
 
 # 1. Garante que a API e o Banco de Dados estão rodando em segundo plano
-docker compose up -d
+podman-compose up -d    
 
-# 2. Aguarda a API local ficar pronta (como é local, leva 1 ou 2 segundos)
-# O comando curl tenta acessar a API invisivelmente até ela responder
-while ! curl -s http://localhost:8000/ > /dev/null; do
+# 2. Aguarda a API local ficar pronta
+while ! curl -s http://127.0.0.1:8000/ > /dev/null; do
+    sleep 1
+done
     sleep 1
 done
 

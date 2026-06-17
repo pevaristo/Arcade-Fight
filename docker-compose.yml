@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # SERVIÇO DO BANCO DE DADOS POSTGRESQL
   db:
-    image: postgres:15
+    image: docker.io/library/postgres:15
     container_name: arcade_db
     restart: always
     environment:
